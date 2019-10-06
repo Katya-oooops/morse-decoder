@@ -38,7 +38,7 @@ const MORSE_TABLE = {
 };
 
 function decode(expr) {
-   
+  
   var arr = expr.replace(/11/g, '-').replace(/10/g, '.').replace(/00/g, ',');
   let i=0;
   var myString='';
