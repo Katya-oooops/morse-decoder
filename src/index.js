@@ -39,13 +39,17 @@ const MORSE_TABLE = {
 
 function decode(expr) {
   
-  var arr = expr.replace(/11/g, '-').replace(/10/g, '.').replace(/00/g, ',');
+  var arr = expr.replace(/11/g, '-').replace(/10/g, '.').replace(/00/g, ',').replace(/\*\*/g, '*');
   let i=0;
   var myString='';
   while (i < arr.length){
     var test = arr.slice(i, i+5);
     var testB = test.replace(/,/g, '');
+    if (testB=="*****") {
+      myString+=" ";
+    } else {
     myString+=MORSE_TABLE[testB];
+    }
     i=i+5;
   }  
 
